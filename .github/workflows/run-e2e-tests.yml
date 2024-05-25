@@ -9,18 +9,18 @@ jobs:
 
     services:
       api-solid-pg:
-      image: bitnami/postgresql
-      ports:
-        - 5433:5432
-      environment:
-        - POSTGRESQL_USERNAME=docker
-        - POSTGRESQL_PASSWORD=docker
-        - POSTGRESQL_DATABASE=apisolid
+        image: bitnami/postgresql
+        ports:
+          - 5433:5432
+        env:
+          POSTGRESQL_USERNAME: docker
+          POSTGRESQL_PASSWORD: docker
+          POSTGRESQL_DATABASE: apisolid
 
     steps:
       - uses: actions/checkout@v3
 
-      - uses: action/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: "npm"
