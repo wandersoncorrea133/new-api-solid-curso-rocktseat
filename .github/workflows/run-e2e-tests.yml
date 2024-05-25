@@ -11,7 +11,7 @@ jobs:
       api-solid-pg:
       image: bitnami/postgresql
       ports:
-        - 5433:5432
+        - 5432:5432
       env:
         POSTGRESQL_USERNAME: docker
         POSTGRESQL_PASSWORD: docker
