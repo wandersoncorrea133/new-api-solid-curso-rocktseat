@@ -1,4 +1,5 @@
 import fastifyJwt from '@fastify/jwt'
+import fastifyCors from '@fastify/cors'
 import fastifyCookie from '@fastify/cookie'
 import fastify from 'fastify'
 import { usersRoutes } from './http/controllers/users/routes'
@@ -16,8 +17,14 @@ app.register(fastifyJwt, {
     signed: false,
   },
   sign: {
-    expiresIn: '10m',
+    expiresIn: '20s',
   },
+})
+
+app.register(fastifyCors, {
+  credentials: true,
+  methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+  origin: true,
 })
 
 app.register(fastifyCookie)
